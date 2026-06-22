@@ -1,0 +1,94 @@
+# Top-level EditorConfig file
+root = true
+#
+#--------------------------------------------
+# Global defaults
+#--------------------------------------------
+[*]
+charset = utf-8
+end_of_line = lf
+tab_width = 4
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = false
+#
+# Default indentation (overridden below where needed)
+#
+#--------------------------------------------
+# C++ source files (.cxx / .hxx)
+#--------------------------------------------
+[*.{cxx,hxx}]
+charset = utf-8
+end_of_line = lf
+tab_width = 2
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = true
+#
+#--------------------------------------------
+# CMake files
+#--------------------------------------------
+[CMakeLists.txt]
+charset = utf-8
+end_of_line = lf
+tab_width = 2
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.cmake]
+charset = utf-8
+end_of_line = lf
+tab_width = 4
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = false
+#
+#--------------------------------------------
+# Shell Scripts (Specifically PowerShell & Bash)
+#--------------------------------------------
+[*.{ps1,psm1,psd1}]
+charset = utf-8
+end_of_line = lf
+tab_width = 2
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = false
+insert_final_newline = false
+#
+#--------------------------------------------
+# JSON, YAML, INI config files
+#--------------------------------------------
+[*.{json,jsonc,yaml,ini,clang-format,clang-tidy,clangd}]
+charset = utf-8
+end_of_line = lf
+tab_width = 4
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = false
+#
+#--------------------------------------------
+# Text (txt) & MD (Markdown)
+#--------------------------------------------
+[*.{md,txt}]
+charset = utf-8
+end_of_line = lf
+tab_width = 4
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[LICENSE]
+charset = utf-8
+end_of_line = lf
+tab_width = 4
+indent_size = 4
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = false

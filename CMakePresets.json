@@ -1,0 +1,113 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Kitware/CMake/refs/heads/master/Help/manual/presets/schema.json",
+  "version": 11,
+  "cmakeMinimumRequired": {
+    "major": 4,
+    "minor": 3,
+    "patch": 2
+  },
+  "configurePresets": [
+    {
+      "name": "Debug-config-windows-x86_64",
+      "displayName": "Windows Debug Preset Config",
+      "description": "Debug preset configuration for x86_64 Win-11 environments.",
+      "toolchainFile": "${sourceDir}/cmake/toolchain/Windows-x86_64.cmake",
+      "binaryDir": "${sourceDir}/build/Debug",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "Release-config-windows-x86_64",
+      "displayName": "Windows Release Preset Config",
+      "description": "Release preset configuration for x86_64 Win-11 environments.",
+      "toolchainFile": "${sourceDir}/cmake/toolchain/Windows-x86_64.cmake",
+      "binaryDir": "${sourceDir}/build/Release",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "Debug-config-linux-x86_64",
+      "displayName": "Linux Debug Preset Config",
+      "description": "Debug preset config for Fedora 43 (x86_64) & other Linux (x86_64) environments.",
+      "toolchainFile": "${sourceDir}/cmake/toolchain/Linux-x86_64.cmake",
+      "binaryDir": "${sourceDir}/build/Debug",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "Release-config-linux-x86_64",
+      "displayName": "Linux Release Preset Config",
+      "description": "Release preset configuration for Fedora 43 (x86_64) & other Linux (x86_64) environments.",
+      "toolchainFile": "${sourceDir}/cmake/toolchain/Linux-x86_64.cmake",
+      "binaryDir": "${sourceDir}/build/Release",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Debug-build-config-windows-x86_64",
+      "displayName": "Windows 'Debug' Build Config",
+      "description": "Build preset configuration for x86_64 Win-11 environments.",
+      "configurePreset": "Debug-config-windows-x86_64",
+      "targets": [
+        "all"
+      ],
+      "verbose": true,
+      "jobs": 16,
+      "cleanFirst": false,
+      "hidden": false
+    },
+    {
+      "name": "Release-build-config-windows-x86_64",
+      "displayName": "Windows 'Release' Build Config",
+      "description": "Build preset configuration for x86_64 Win-11 environments.",
+      "configurePreset": "Release-config-windows-x86_64",
+      "targets": [
+        "all"
+      ],
+      "verbose": true,
+      "jobs": 16,
+      "cleanFirst": true,
+      "hidden": false
+    },
+    {
+      "name": "Debug-build-config-linux-x86_64",
+      "displayName": "Linux 'Debug' Build Config",
+      "description": "Build preset configuration for Fedora 43 (x86_64) & other Linux (x86_64) environments.",
+      "configurePreset": "Debug-config-linux-x86_64",
+      "targets": [
+        "all"
+      ],
+      "verbose": true,
+      "jobs": 16,
+      "cleanFirst": false,
+      "hidden": false
+    },
+    {
+      "name": "Release-build-config-linux-x86_64",
+      "displayName": "Linux 'Release' Build Config",
+      "description": "Build preset configuration for Fedora 43 (x86_64) & other Linux (x86_64) environments.",
+      "configurePreset": "Release-config-linux-x86_64",
+      "targets": [
+        "all"
+      ],
+      "verbose": true,
+      "jobs": 16,
+      "cleanFirst": true,
+      "hidden": false
+    }
+  ]
+}
