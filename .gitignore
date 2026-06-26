@@ -23,6 +23,8 @@ build.ninja
 
 # Trash Directory
 .trash
+.vscode/settings.json
+.vscode/launch.json
 
 
 # @SEE https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
