@@ -1,7 +1,0 @@
-# ninja log v6
-15	170	8038507446101267	source/lib/buffer/CMakeFiles/buffer.dir/buffer.cxx.obj.ddi	4918932ae5777055
-171	201	8038507448010875	source/lib/buffer/CMakeFiles/buffer.dir/CXX.dd	e5a036adb6f490b4
-171	201	8038507448010875	source/lib/buffer/CMakeFiles/buffer.dir/CXXModules.json	e5a036adb6f490b4
-171	201	8038507448010875	source/lib/buffer/CMakeFiles/buffer.dir/buffer.cxx.obj.modmap	e5a036adb6f490b4
-207	633	8038507448168367	source/lib/buffer/CMakeFiles/buffer.dir/buffer.cxx.obj	4fcb22b356e7e21c
-638	696	8038507452448843	lib/jbox-buffer.lib	ce6802a7a5782a8b
