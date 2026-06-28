@@ -1,5 +1,5 @@
+Include_Guard(GLOBAL)
 ###########################################################################
-#
 # MAJIN PROJECT: JSON Analyzer, Parser & Formatter
 #
 # Copyright (C) 2026 "Andrew Jay Chambers Jr"
@@ -37,109 +37,73 @@
 #   do not edit the includes or include guard below, and do not edit any
 #   past the point that reads: "DO NOT EDIT CODE BELOW THIS LINE"
 ###########################################################################
-Include_Guard(GLOBAL)
-Include("${CMAKE_CURRENT_LIST_DIR}/MajinGlobals.cmake")
+Include("${CMAKE_CURRENT_LIST_DIR}/scripts/add-compile-commands-dir.cmake")
+Include("${CMAKE_CURRENT_LIST_DIR}/scripts/cache-var.cmake")
 
 
-set(COMPILE_COMMANDS_OUTPUT_DIR "${CMAKE_BINARY_DIR}/compile_commands")
+# CMAKE CONFIG
+set(MAJIN_CMAKE_VERSION_    "4.3.2")
+
+# MAJIN META CONFIG
+set(MAJIN_DESCRIPTION_      "JSON Analyzer, AST Generator & Formatter")
+set(MAJIN_VER_MAJOR_        "0")
+set(MAJIN_VER_MINOR_        "1")
+set(MAJIN_VER_PATCH_        "0")
+
+# MAJIN BUILD CONFIG
+set(EXEC_OUTPUT_DIR_        "bin")
+set(TEST_EXEC_OUTPUT_DIR_   "test/bin")
+set(LIB_OUTPUT_DIR_         "lib")
 
 
+    ###################################################
+    ## !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ##
+    ## !!                                         !! ##
+    ## !!  DO NOT EDIT THE CODE BELOW THIS POINT  !! ##
+    ## !!                                         !! ##
+    ## !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ##
+    ###################################################
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###########################################################################
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #
-# !!                                                                   !! #
-# !!                                                                   !! #
-# !!              DO NOT EDIT THE CODE BELOW THIS POINT                !! #
-# !!                                                                   !! #
-# !!                                                                   !! #
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #
-###########################################################################
-
-
-
-#-------------------------------------------#
-# META INFORMATION VARIABLES
-#-------------------------------------------#
+#-----------------------------------------------------------#
+# CACHED & CONFIGURED META INFORMATION VALUES
+#-----------------------------------------------------------#
 cache_var(
-    PROJECT_NAME__
+    PROJECT_NAME
     "Majin"
-    "Project name (Majin)"
+    "Project's name (Majin)."
     FORCE)
 
 cache_var(
-    PROJECT_DESC__
-    "Set of JSON utility interfaces"
-    "Project description"
+    MAJIN_DESCRIPTION
+    ${MAJIN_DESCRIPTION_}
+    "Majin project's description."
     FORCE)
 
 cache_var(
-    PROJECT_VERSION__
-    "0.1.0"
-    "Current build's version number"
-    "") # Does not force set the variable, as the version
-        # must be dynamically settable.
+    MAJIN_VERSION
+    "${MAJIN_VER_MAJOR_}.${MAJIN_VER_MINOR_}.${MAJIN_VER_PATCH_}"
+    "Majin version to be built."
+    "")
 
 
 
-#-------------------------------------------#
-# ROOT DIRECTORY PATH:
-#   A sugary variable that is equal to using
-#   'CMAKE_SOURCE_DIR'.
-#-------------------------------------------#
-cache_path(ROOTDIR__
-    "${CMAKE_SOURCE_DIR}/.."
-    "Project root directory"
+
+#----------------------------------------------------------#
+# CACHED & CONFIGURED BUILD SYSTEM CONFIGURATION VALUES
+#----------------------------------------------------------#
+cache_path(EXEC_OUTPUT_DIR
+    "${CMAKE_BINARY_DIR}/${EXEC_OUTPUT_DIR_}"
+    "Directory where executable binaries are created and stored @(${CMAKE_BINARY_DIR}/${EXEC_OUTPUT_DIR_})"
     FORCE)
 
-
-
-#-------------------------------------------#
-# COMPILER CONFIGURATION VARIABLES:
-#   Variables that are used to configure the
-#   directory structure of the build output.
-#-------------------------------------------#
-# DEBUG BUILD PATHS
-cache_path(DEBUG_BUILD_DIR__
-    "${ROOTDIR__}/build/debug"
-    "Debug build directory"
+cache_path(TEST_EXEC_OUTPUT_DIR
+    "${CMAKE_BINARY_DIR}/${TEST_EXEC_OUTPUT_DIR_}"
+    "Directory where test executable binaries are created and stored @(${CMAKE_BINARY_DIR}/${TEST_EXEC_OUTPUT_DIR_})"
     FORCE)
 
-cache_path(DEBUG_BIN_DIR__
-    "${DEBUG_BUILD_DIR__}/bin"
-    "Debug build binary output directory"
+cache_path(LIB_OUTPUT_DIR
+    "${CMAKE_BINARY_DIR}/${LIB_OUTPUT_DIR_}"
+    "Directory where library binaries are created and stored @(${CMAKE_BINARY_DIR}/${LIB_OUTPUT_DIR_})"
     FORCE)
 
-cache_path(DEBUG_LIB_DIR__
-    "${DEBUG_BUILD_DIR__}/lib"
-    "Debug build library output directory"
-    FORCE)
-
-
-# RELEASE BUILD PATHS
-cache_path(RELEASE_BUILD_DIR__
-    "${ROOTDIR__}/build/release"
-    "Release build directory"
-    FORCE)
-
-cache_path(RELEASE_BIN_DIR__
-    "${RELEASE_BUILD_DIR__}/bin"
-    "Release build binary output directory"
-    FORCE)
-
-cache_path(RELEASE_LIB_DIR__
-    "${RELEASE_BUILD_DIR__}/lib"
-    "Release build library output directory"
+add_compile_commands_dir()
