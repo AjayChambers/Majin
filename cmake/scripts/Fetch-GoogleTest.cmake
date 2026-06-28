@@ -31,15 +31,15 @@
 #=========================================================================#
 
 #=========================================================================#
-# FUNCTION: "fetch_googletest(GTestVersion)"
+# FUNCTION:
+#   fetch_googletest(GTestVersion)
 # ARGUMENTS:
-#   - GTestVersion: The version of GoogleTest to fetch
-#     (`example: "v1.10.0"`)
-# DESCRIPTION: "This function uses CMake's FetchContent module to
-#   download and include GoogleTest into the project's build. It
-#   also configures necessary compile options and settings to
-#   ensure that GoogleTest is properly integrated and does not
-#   produce unnecessary warnings."
+#   GTestVersion: The GoogleTest version to fetch (e.g. "v1.10.0").
+# DESCRIPTION:
+#   This function uses the FetchContent module to download and include
+#   GoogleTest into the project's build. It also configures necessary
+#   compile options and settings to ensure that GoogleTest is properly
+#   integrated and does not produce unnecessary warnings.
 #=========================================================================#
 Include_Guard(GLOBAL)
 
@@ -49,16 +49,15 @@ function(fetch_googletest GTestVersion)
     URL "https://github.com/google/googletest/archive/refs/tags/${GTestVersion}.zip")
   FetchContent_MakeAvailable(googletest)
 
-  # The following compiler flags silence warnings about language extension tokens in
-  # the GoogleTest framework's source code. The warnings are inconsequential, as they
-  # don't state any actual issues that would affect the functionality of the tests or
-  # J-Tool project.
-  target_compile_options(gtest
-    PRIVATE -Wno-language-extension-token)
-  target_compile_options(gtest_main
-    PRIVATE -Wno-language-extension-token)
-
   # Force shares CRT on Windows to avoid linker errors
   # when GoogleTest is linked to a static library
   set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+  # The following property settings isolate GoogleTest from the strict warnings that are
+  # enabled throughout the Majin project. This workaround is necessary because the
+  # compiler configuration used by all Majin targets is more strict than the the compiler
+  # configuration used by GoogleTest.
+  set_target_properties(gtest PROPERTIES COMPILE_OPTIONS "-Wno-character-conversion")
+  set_target_properties(gmock PROPERTIES COMPILE_OPTIONS "-Wno-character-conversion")
+  set_target_properties(gmock_main PROPERTIES COMPILE_OPTIONS "-Wno-character-conversion")
 endfunction()
