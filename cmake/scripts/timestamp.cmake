@@ -1,1 +1,0 @@
-Include_Guard(GLOBAL)v
