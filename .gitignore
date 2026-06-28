@@ -26,5 +26,7 @@ build/Release/*
 # .vscode/settings.json
 .vscode/launch.json
 
+# Configuration & Ignore Files
+.gitignore
 
 # @SEE https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
