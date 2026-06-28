@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Debug (Win)",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "build/Debug"],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "focus": true,
+                "clear": true,
+                "group": "Majin-Tools",
+                "showReuseMessage": false,
+                "preserveTerminalName": true
+            },
+            "icon": {
+                "id": "build",
+                "color": "terminal.ansiBlue"
+            }
+        },
+        {
+            "label": "Config Debug (Win)",
+            "command": "${workspaceFolder}/tools/Configure-Majin-Project.ps1",
+            "args": ["windows-x86_64", "Debug"],
+            "type": "shell",
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "focus": true,
+                "clear": true,
+                "group": "Majin-Tools",
+                "showReuseMessage": false,
+                "preserveTerminalName": true
+            },
+            "icon": {
+                "id": "gear",
+                "color": "terminal.ansiBlue"
+            }
+        },
+
+        {
+            "label": "Run Buffer Test",
+            "command": "${workspaceFolder}/build/Debug/test/bin/Majin-Buffer-Test.exe",
+            "args": [],
+            "type": "shell",
+            "problemMatcher": [],
+            "presentation": {
+                "revealProblems": "onProblem",
+                "panel": "shared",
+                "focus": true,
+                "clear": true,
+                "group": "Majin-Tests",
+                "preserveTerminalName": true
+            },
+            "icon": {
+                "id": "run-compact",
+                "color": "terminal.ansiMagenta"
+            }
+        },
+        //
+    ]
+}
