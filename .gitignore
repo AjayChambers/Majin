@@ -18,8 +18,8 @@ build.ninja
 .ninja_log
 
 # BUILD DIRECTORIES
-# build/Debug/*
-# build/Release/*
+build/Debug/*
+build/Release/*
 
 # Trash Directory
 .trash
