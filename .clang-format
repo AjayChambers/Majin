@@ -12,40 +12,41 @@ IndentWidth: 4
 ContinuationIndentWidth: 2
 ConstructorInitializerIndentWidth: 2
 AccessModifierOffset: -2
-MaxEmptyLinesToKeep: 5
+MaxEmptyLinesToKeep: 2
 AlignAfterOpenBracket: false
 AlignArrayOfStructures: Left # (Left|Right|None)
 AlignConsecutiveAssignments:
-  Enabled: true
-  AlignCompound: false
-  EnumAssignments: true
-  AcrossEmptyLines: true
-  AcrossComments: false
+    Enabled: true
+    AcrossComments: false
+    AcrossEmptyLines: false
+    EnumAssignments: true
+    AlignCompound: true
+    PadOperators: true
 AlignConsecutiveDeclarations:
-  Enabled: false
-  AcrossEmptyLines: false
-  AcrossComments: false
-  AlignFunctionPointers: true
-  AlignFunctionDeclarations: false # Don't align func-declarations
-  PadOperators: true # Pad operators with spaces when aligning
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments: false
+    AlignFunctionDeclarations: false # Don't align func-declarations
+    AlignFunctionPointers: true
+    PadOperators: true # Pad operators with spaces when aligning
 AlignConsecutiveBitFields:
-  Enabled: true
-  AcrossEmptyLines: false
-  AcrossComments: false
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments: false
 AlignConsecutiveMacros:
-  Enabled: true
-  AcrossEmptyLines: true
-  AcrossComments: true
+    Enabled: true
+    AcrossEmptyLines: false
+    AcrossComments: true
 AlignConsecutiveShortCaseStatements:
-  Enabled: true
-  AlignCaseColons: true
-  AcrossComments: true
-  AcrossEmptyLines: false
+    Enabled: true
+    AlignCaseColons: true
+    AcrossComments: false
+    AcrossEmptyLines: false
 AlignTrailingComments:
-  Kind: Always
-  OverEmptyLines: 1
+    Kind: Always
+    OverEmptyLines: 1
 AlignEscapedNewlines: Right # (DontAlign|LeftWithLastLine|Left|Right)
-AlignOperands: AlignAfterOperator # Align|DontAlign|AlignAfterOperator|BreakBeforeBinaryOperators)
+AlignOperands: Align # Align|DontAlign|AlignAfterOperator|BreakBeforeBinaryOperators)
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowBreakBeforeNoexceptSpecifier: OnlyWithParen # (Always|Never|OnlyWithParen)
@@ -54,9 +55,9 @@ AllowShortCaseExpressionOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortEnumsOnASingleLine: true
 AllowShortFunctionsOnASingleLine:
-  Empty: true
-  Inline: true
-  Other: false
+    Empty: true
+    Inline: true
+    Other: false
 AllowShortIfStatementsOnASingleLine: "AllIfsAndElse"
 AllowShortLambdasOnASingleLine: "All"
 AllowShortLoopsOnASingleLine: true
@@ -64,37 +65,40 @@ AllowShortNamespacesOnASingleLine: true
 AllowShortRecordOnASingleLine: "Always"
 AlwaysBreakAfterDefinitionReturnType: "None"
 AlwaysBreakBeforeMultilineStrings: true
+BreakBeforeBinaryOperators: NonAssignment # (None|NonAssignment|All)
 BreakBeforeConceptDeclarations: Always # (Never|Allowed|Always)
 BreakBeforeTemplateCloser: false
 BreakBeforeTernaryOperators: true
 BreakBinaryOperations:
-  Default: OnePerLine
-  PerOperator:
-    - Operators:
-        [
-          "&&",
-          "||",
-          "?",
-          ":",
-          "==",
-          "!=",
-          "<",
-          ">",
-          "<=",
-          ">=",
-          "+",
-          "-",
-          "*",
-          "/",
-          "%",
-          "&",
-          "|",
-          "^",
-          "<<",
-          ">>",
-        ]
-      Style: OnePerLine
-      MinChainLength: 3
+    Default: OnePerLine
+    PerOperator:
+        - Operators:
+              [
+                  "&&",
+                  "||",
+                  "==",
+                  "!=",
+                  "<",
+                  ">",
+                  "<=",
+                  ">=",
+                  "&",
+                  "|",
+                  "^",
+              ]
+          Style: OnePerLine
+          MinChainLength: 3
+        - Operators:
+              [
+                  "+",
+                  "-",
+                  "*",
+                  "/",
+                  "%",
+                  "<<",
+                  ">>",
+              ]
+          Style: Never
 
 BreakConstructorInitializers: BeforeColon
 BreakTemplateDeclarations: "Yes"
@@ -105,30 +109,30 @@ BreakTemplateDeclarations: "Yes"
 #############################################
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterControlStatement: Never
-  AfterStruct: false
-  AfterEnum: false
-  BeforeElse: false
-  AfterClass: false
-  AfterNamespace: false
-  AfterFunction: true
-  AfterCaseLabel: true
-  AfterUnion: true
-  BeforeCatch: true
-  BeforeLambdaBody: true
-  BeforeWhile: true
-  IndentBraces: false
-  SplitEmptyRecord: false
-  SplitEmptyFunction: false
-  SplitEmptyNamespace: false
+    AfterControlStatement: Never
+    AfterStruct: false
+    AfterEnum: false
+    BeforeElse: false
+    AfterClass: false
+    AfterNamespace: true
+    AfterFunction: true
+    AfterCaseLabel: true
+    AfterUnion: true
+    BeforeCatch: true
+    BeforeLambdaBody: true
+    BeforeWhile: true
+    IndentBraces: false
+    SplitEmptyRecord: false
+    SplitEmptyFunction: false
+    SplitEmptyNamespace: false
 #
 #
 DerivePointerAlignment: false
 PointerAlignment: Right
-NamespaceIndentation: All # (None|Inner|All)
+NamespaceIndentation: Inner # (None|Inner|All)
 PackConstructorInitializers: "Never"
 PackArguments:
-  BinPack: UseBreakAfter
-  BreakAfter: 2
+    BinPack: UseBreakAfter
+    BreakAfter: 2
 InsertNewlineAtEOF: true
 ...

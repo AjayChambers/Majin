@@ -23,7 +23,7 @@ build.ninja
 
 # Trash Directory
 .trash
-.vscode/settings.json
+# .vscode/settings.json
 .vscode/launch.json
 
 

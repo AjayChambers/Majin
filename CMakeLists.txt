@@ -2,26 +2,39 @@ CMAKE_MINIMUM_REQUIRED(VERSION 4.3.2)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-Include("cmake/MajinGlobals.cmake")
+Include("${CMAKE_SOURCE_DIR}/cmake/MajinConfig.cmake")
 
-list(APPEND CMAKE_MODULE_PATH
-    "cmake"
-    "cmake/scripts")
+project(
+    "Majin"
+    VERSION     ${MAJIN_VERSION}
+    DESCRIPTION ${MAJIN_DESCRIPTION}
+    LANGUAGES   CXX)
 
-project(${PROJECT_NAME__}
-    VERSION ${PROJECT_VERSION__}
-    DESCRIPTION ${PROJECT_DESC__}
-    LANGUAGES CXX)
+list(APPEND
+    CMAKE_MODULE_PATH
+    "${CMAKE_SOURCE_DIR}/cmake/scripts")
 
-add_compile_options(-g -O0 -Wall -Wextra)
+include_directories("${CMAKE_SOURCE_DIR}/include")
 
-include_directories(
-    "${CMAKE_SOURCE_DIR}/include"
-    "${CMAKE_SOURCE_DIR}/source/lib/buffer/include"
-    "${CMAKE_SOURCE_DIR}/source/lib/text-file/include")
+# PROJECT DEBUG CONFIG
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    message(STATUS "BUILD TYPE = 'Debug'")
+    add_compile_options(-g -O0 -std=c++23 -Wall -Wextra -Wpedantic)
+    add_subdirectory("source")
+    add_subdirectory("test")
+endif()
 
-add_subdirectory("source")
 
-# if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-#     add_subdirectory("test")
-# endif()
+# PROJECT RELEASE CONFIG
+if(CMAKE_BUILD_TYPE STREQUAL "Release") # RELEASE FLAGS
+    message(STATUS "BUILD TYPE = 'Release'")
+    add_compile_options(
+        -Wall -Wextra -Wpedantic -O3 -DNDEBUG -std=c++23 -flto=full)
+    add_link_options(-flto=full)
+    add_subdirectory("source")
+endif()
+
+
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+endif()
