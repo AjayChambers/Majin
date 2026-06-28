@@ -1,0 +1,92 @@
+//----------------------------------------------
+// Majin Settings for VS Code
+//----------------------------------------------
+{
+    //
+    //
+    //---------------------------------------------------------------
+    // CMAKE EXTENSION CONFIG
+    //---------------------------------------------------------------
+    "cmake.configureOnOpen": false,
+    "cmake.configureOnEdit": true,
+    "cmake.enableTraceLogging": false,
+    "cmake.loggingLevel": "info",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    //
+    //
+    //----------------------------------------------
+    // CLANG TOOLING SETTINGS
+    //----------------------------------------------
+    "clang-format.executable": "A:\\bin\\clang-format.exe",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build/compile_commands/compile_commands.json"
+    ],
+    //
+    //
+    //----------------------------------------------
+    // MAJIN ENVIRONMENT CONFIGURATION
+    //----------------------------------------------
+    "[json][jsonc][yaml]": {
+        //
+        // YAML, JSON, & JSONC FORMAT SETTINGS
+        "editor.tabSize": 4,
+        "editor.indentSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        //
+        // YAML, JSON, & JSONC FILE SETTINGS
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "files.trimTrailingWhitespaceInRegexAndStrings": false,
+        "files.autoGuessEncoding": false,
+        "files.encoding": "utf8",
+        "files.eol": "\n" // LF
+    },
+    "[cpp]": {
+        //
+        // C++ FORMAT SETTINGS
+        "editor.tabSize": 2,
+        "editor.indentSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        //
+        // C++ FILE SETTINGS
+        "files.trimTrailingWhitespace": true,
+        "files.trimTrailingWhitespaceInRegexAndStrings": false,
+        "files.insertFinalNewline": true,
+        "files.autoGuessEncoding": false,
+        "files.encoding": "utf8",
+        "files.eol": "\n" // LF
+    },
+    "[md][plaintext]": {
+        //
+        // MARKDOWN & PLAINTEXT FORMAT SETTINGS
+        "editor.tabSize": 4,
+        "editor.indentSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        //
+        // MARKDOWN & PLAINTEXT FILE SETTINGS
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": false,
+        "files.autoGuessEncoding": false,
+        "files.encoding": "utf8",
+        "files.eol": "\n" // LF
+    },
+    "[powershell][shellscript]": {
+        //
+        // SCRIPTING LANGUAGES FORMAT SETTINGS
+        "editor.tabSize": 4,
+        "editor.indentSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        //
+        // SCRIPTING LANGUAGES FILE SETTINGS
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "files.trimTrailingWhitespaceInRegexAndStrings": false,
+        "files.autoGuessEncoding": false,
+        "files.encoding": "utf8",
+        "files.eol": "\n" // LF
+    }
+}
